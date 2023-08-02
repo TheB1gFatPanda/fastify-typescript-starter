@@ -1,16 +1,15 @@
 import { Routes } from '@interfaces/routes.interface';
-import { RouteOptions } from 'fastify';
+import { FastifyInstance, RouteOptions } from 'fastify';
 import UserController from '@controllers/user.controller';
 
 import { GetUserSchema } from '@schema/user.schema';
-import { CustomFastifyInstance } from '@/interfaces/common.interface';
 
 class UserRoute implements Routes {
   public path = '/user';
 
   public userController = new UserController();
 
-  public initializeRoutes(fastify: CustomFastifyInstance, opts: RouteOptions, done: () => void) {
+  public initializeRoutes(fastify: FastifyInstance, opts: RouteOptions, done: () => void) {
     fastify.route({
       method: 'get',
       url: this.path,

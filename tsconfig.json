@@ -21,6 +21,7 @@
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "importHelpers": true,
+    "skipLibCheck": true,
     "baseUrl": "src",
     "paths": {
       "@/*": ["*"],

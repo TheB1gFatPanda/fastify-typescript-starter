@@ -1,0 +1,15 @@
+{
+  "editor.codeActionsOnSave": {
+    "source.formatDocument": true,
+    "source.fixAll.eslint": true
+  },
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[typescript]": {
+    "editor.formatOnSave": true
+  },
+  "cSpell.words": ["envalid", "fastify", "pino", "typebox"],
+  "[prisma]": {
+    "editor.defaultFormatter": "Prisma.prisma"
+  }
+}
