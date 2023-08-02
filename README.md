@@ -97,3 +97,7 @@ Launch your server with this command:
 ```sh
 npm run dev
 ```
+
+### Swagger Endpoint:
+
+http://localhost:3001/api-docs
