@@ -1,55 +1,37 @@
 export const responseProperty = {
-  version: {
-    type: 'string'
-  },
   message: {
     type: 'string'
-  },
-  error: {
-    type: 'boolean'
-  }
-};
-
-const errorResponseProperty = {
-  version: {
-    type: 'string'
-  },
-  message: {
-    type: 'string'
-  },
-  error: {
-    type: 'boolean'
   }
 };
 
 export const ERROR400 = {
   description: 'Bad request',
   type: 'object',
-  properties: errorResponseProperty
+  properties: responseProperty
 };
 
 export const ERROR401 = {
   description: 'Unauthorized',
   type: 'object',
-  properties: errorResponseProperty
+  properties: responseProperty
 };
 
 export const ERROR403 = {
   description: 'Forbidden Request',
-  properties: errorResponseProperty
+  properties: responseProperty
 };
 
 export const ERROR404 = {
   description: 'Not found',
-  properties: errorResponseProperty
+  properties: responseProperty
 };
 
 export const ERROR409 = {
   description: 'Conflict',
-  properties: errorResponseProperty
+  properties: responseProperty
 };
 
 export const ERROR500 = {
   description: 'Internal Sever Error',
-  properties: errorResponseProperty
+  properties: responseProperty
 };

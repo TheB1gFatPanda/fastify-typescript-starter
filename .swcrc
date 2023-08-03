@@ -22,7 +22,6 @@
     "paths": {
       "@/*": ["*"],
       "@config": ["config"],
-      "@exceptions/*": ["exceptions/*"],
       "@interfaces/*": ["interfaces/*"],
       "@utils/*": ["utils/*"],
       "@constants/*": ["constants/*"],

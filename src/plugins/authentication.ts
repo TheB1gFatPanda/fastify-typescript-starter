@@ -1,12 +1,10 @@
-import { FastifyInstance, FastifyRequest } from 'fastify';
+import { FastifyInstance, FastifyReply, FastifyRequest } from 'fastify';
 import { fastifyPlugin } from 'fastify-plugin';
 
 import prisma from '@utils/prisma';
 
-import { HttpException } from '@exceptions/HttpException';
-
 export const authentication = fastifyPlugin((fastify: FastifyInstance, _: unknown, done: () => void) => {
-  const authPreHandler = async (request: FastifyRequest) => {
+  const authPreHandler = async (request: FastifyRequest, reply: FastifyReply) => {
     try {
       const authorization =
         (request.headers.authorization ? request.headers.authorization?.split('Bearer ')[1] : '') || '';
@@ -24,7 +22,7 @@ export const authentication = fastifyPlugin((fastify: FastifyInstance, _: unknow
 
       request.user = getUser;
     } catch (error) {
-      throw new HttpException(401, 'Unauthorized');
+      reply.unauthorized();
     }
   };
   fastify.decorate('authenticateUser', authPreHandler);

@@ -4,8 +4,6 @@ import { FastifyReply } from 'fastify';
 
 import { LoginUser } from '@components/auth/auth.interface';
 
-import { HttpException } from '@exceptions/HttpException';
-
 import prisma from '@utils/prisma';
 
 class AuthService {
@@ -19,14 +17,14 @@ class AuthService {
     });
 
     if (!findUser) {
-      throw new HttpException(404, 'User not found');
+      return reply.notFound('User not found');
     }
 
     // compare hashed and password
     const isPasswordMatching: boolean = await compare(loginData.password, findUser.password).catch(() => false);
 
     if (!isPasswordMatching) {
-      throw new HttpException(401, 'Incorrect login credentials');
+      return reply.unauthorized('Incorrect login credentials');
     }
 
     // example jwt

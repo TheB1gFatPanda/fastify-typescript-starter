@@ -4,8 +4,6 @@ import { LoginUser } from '@components/auth/auth.interface';
 
 import AuthService from '@components/auth/auth.service';
 
-import { customResponse } from '@utils/util';
-
 class AuthController {
   public authService = new AuthService();
 
@@ -14,7 +12,7 @@ class AuthController {
 
     const data = await this.authService.LoginUser({ email, password }, reply);
 
-    customResponse(reply, { statusCode: 201, data, error: false, message: 'login' });
+    return { data, message: 'login' };
   };
 }
 

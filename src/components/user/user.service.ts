@@ -2,16 +2,15 @@ import { hash } from 'bcrypt';
 
 import { CreateUser, GetUser } from '@components/user/user.interface';
 
-import { HttpException } from '@exceptions/HttpException';
-
 import prisma from '@utils/prisma';
+import { FastifyReply } from 'fastify';
 
 class UserService {
   public db = prisma;
 
   private saltRounds = 10;
 
-  public async createUser(createData: CreateUser) {
+  public async createUser(createData: CreateUser, reply: FastifyReply) {
     const checkUserExists = await this.db.user.findUnique({
       where: {
         email: createData.email
@@ -19,7 +18,7 @@ class UserService {
     });
 
     if (checkUserExists) {
-      throw new HttpException(409, 'User already exists');
+      return reply.conflict('User already exists');
     }
 
     const hashedPassword = await hash(createData.password, this.saltRounds);
@@ -37,7 +36,7 @@ class UserService {
     return user;
   }
 
-  public async getUser(getUserData: GetUser) {
+  public async getUser(getUserData: GetUser, reply: FastifyReply) {
     const findUser = await this.db.user.findUnique({
       where: {
         email: getUserData.email
@@ -45,7 +44,7 @@ class UserService {
     });
 
     if (!findUser) {
-      throw new HttpException(404, 'User not found');
+      return reply.notFound('User not found');
     }
 
     return findUser;
