@@ -2,7 +2,7 @@ import { FastifyInstance, RouteOptions } from 'fastify';
 
 import { Routes } from '@interfaces/routes.interface';
 
-import IndexController from '@controllers/index.controller';
+import IndexController from '@components/default/index.controller';
 
 class IndexRoute implements Routes {
   public path = '/';

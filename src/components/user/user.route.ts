@@ -1,8 +1,8 @@
 import { Routes } from '@interfaces/routes.interface';
 import { FastifyInstance, RouteOptions } from 'fastify';
-import UserController from '@controllers/user.controller';
+import UserController from '@components/user/user.controller';
 
-import { GetUserSchema } from '@schema/user.schema';
+import { GetUserSchema } from '@components/user/user.schema';
 
 class UserRoute implements Routes {
   public path = '/user';

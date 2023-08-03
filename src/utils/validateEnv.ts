@@ -1,13 +1,9 @@
-import { cleanEnv, port, str } from 'envalid';
+import { Type } from '@sinclair/typebox';
 
-const validateEnv = () => {
-  cleanEnv(process.env, {
-    NODE_ENV: str(),
-    PORT: port(),
-    API_VERSION: str(),
-    ORIGIN: str(),
-    SECRET_KEY: str()
-  });
-};
-
-export default validateEnv;
+export const schema = Type.Object({
+  NODE_ENV: Type.String(),
+  API_VERSION: Type.String(),
+  ORIGIN: Type.String(),
+  SECRET_KEY: Type.String(),
+  PORT: Type.String()
+});

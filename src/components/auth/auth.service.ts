@@ -2,7 +2,7 @@ import { compare } from 'bcrypt';
 
 import { FastifyReply } from 'fastify';
 
-import { LoginUser } from '@interfaces/auth.interface';
+import { LoginUser } from '@components/auth/auth.interface';
 
 import { HttpException } from '@exceptions/HttpException';
 

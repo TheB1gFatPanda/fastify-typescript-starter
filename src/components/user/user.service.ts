@@ -1,6 +1,6 @@
 import { hash } from 'bcrypt';
 
-import { CreateUser, GetUser } from '@interfaces/user.interface';
+import { CreateUser, GetUser } from '@components/user/user.interface';
 
 import { HttpException } from '@exceptions/HttpException';
 

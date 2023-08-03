@@ -1,16 +1,16 @@
 import { FastifyReply, FastifyRequest } from 'fastify';
 
-import { CreateUser, GetUser } from '@interfaces/user.interface';
+import { CreateUser, GetUser } from '@components/user/user.interface';
 
-import UserService from '@services/user.service';
+import UserService from '@components/user/user.service';
 
 import { customResponse } from '@utils/util';
 
 class UserController {
   public userService = new UserService();
 
-  public createUser = async (req: FastifyRequest, reply: FastifyReply) => {
-    const { email, password } = req.body as CreateUser;
+  public createUser = async (req: FastifyRequest<{ Body: CreateUser }>, reply: FastifyReply) => {
+    const { email, password } = req.body;
 
     const data = await this.userService.createUser({ email, password });
 

@@ -22,14 +22,12 @@
     "paths": {
       "@/*": ["*"],
       "@config": ["config"],
-      "@controllers/*": ["controllers/*"],
       "@exceptions/*": ["exceptions/*"],
       "@interfaces/*": ["interfaces/*"],
-      "@routes/*": ["routes/*"],
-      "@services/*": ["services/*"],
       "@utils/*": ["utils/*"],
-      "@schema/*": ["schema/*"],
-      "@plugins/*": ["plugins/*"]
+      "@constants/*": ["constants/*"],
+      "@plugins/*": ["plugins/*"],
+      "@components/*": ["components/*"]
     }
   },
   "module": {

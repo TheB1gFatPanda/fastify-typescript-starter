@@ -2,11 +2,11 @@ import { FastifyInstance, RouteOptions } from 'fastify';
 
 import { Routes } from '@interfaces/routes.interface';
 
-import AuthController from '@controllers/auth.controller';
-import UserController from '@controllers/user.controller';
+import AuthController from '@components/auth/auth.controller';
+import UserController from '@components/user/user.controller';
 
-import { CreateUserSchema } from '@schema/user.schema';
-import { LoginUserSchema } from '@schema/auth.schema';
+import { CreateUserSchema } from '@components/user/user.schema';
+import { LoginUserSchema } from '@components/auth/auth.schema';
 
 class AuthRoute implements Routes {
   public path = '/auth';
