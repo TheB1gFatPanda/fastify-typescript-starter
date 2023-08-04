@@ -1,6 +1,6 @@
 import { Static } from '@fastify/type-provider-typebox';
 
-import { CreateUserBody } from '@schema/user.schema';
+import { CreateUserBody } from '@components/user/user.schema';
 
 export type CreateUser = Static<typeof CreateUserBody>;
 

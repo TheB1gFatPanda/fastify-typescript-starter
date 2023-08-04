@@ -1,6 +1,6 @@
 import { Type } from '@fastify/type-provider-typebox';
 import { FastifySchema } from 'fastify';
-import { ERROR400, ERROR401, ERROR404, ERROR409, ERROR500, responseProperty } from './constants';
+import { ERROR400, ERROR401, ERROR404, ERROR409, ERROR500, responseProperty } from '@constants/constants';
 
 export const LoginUserBody = Type.Object({
   email: Type.String({ format: 'email', errorMessage: { format: 'Invalid Email' } }),

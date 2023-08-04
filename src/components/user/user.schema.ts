@@ -1,6 +1,6 @@
 import { Type } from '@fastify/type-provider-typebox';
 import { FastifySchema } from 'fastify';
-import { ERROR400, ERROR401, ERROR404, ERROR409, ERROR500, responseProperty } from './constants';
+import { ERROR400, ERROR401, ERROR404, ERROR409, ERROR500, responseProperty } from '@constants/constants';
 
 export const CreateUserBody = Type.Object({
   email: Type.String({ format: 'email', errorMessage: { format: 'Invalid Email' } }),
@@ -8,7 +8,7 @@ export const CreateUserBody = Type.Object({
     format: 'regex',
     pattern: '^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[#?!@$%^&*-])(?=.{8,})',
     errorMessage: {
-      format: 'password must minimum of 8 characters, 1 uppercase, lowercase, number and a special character'
+      pattern: 'password must minimum of 8 characters, 1 uppercase, lowercase, number and a special character'
     }
   })
 });

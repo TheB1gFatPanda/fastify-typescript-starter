@@ -1,10 +1,10 @@
 import { hash } from 'bcrypt';
 
-import { CreateUser, GetUser } from '@interfaces/user.interface';
-
-import { HttpException } from '@exceptions/HttpException';
+import { CreateUser, GetUser } from '@components/user/user.interface';
 
 import prisma from '@utils/prisma';
+
+import { Conflict, NotFound } from '@exceptions/error';
 
 class UserService {
   public db = prisma;
@@ -19,7 +19,7 @@ class UserService {
     });
 
     if (checkUserExists) {
-      throw new HttpException(409, 'User already exists');
+      throw new Conflict('User already exists');
     }
 
     const hashedPassword = await hash(createData.password, this.saltRounds);
@@ -45,7 +45,7 @@ class UserService {
     });
 
     if (!findUser) {
-      throw new HttpException(404, 'User not found');
+      throw new NotFound('User not found');
     }
 
     return findUser;

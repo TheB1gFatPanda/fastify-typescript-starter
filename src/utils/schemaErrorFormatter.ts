@@ -6,8 +6,8 @@ export const schemaErrorFormatter = (errors: FastifySchemaValidationError[]) => 
   }
 
   const firstError = errors[0];
-  const instancePath = firstError?.instancePath.substring(1) || '';
-  const message = firstError?.message || '';
+  const instancePath = firstError?.instancePath.substring(1) ?? '';
+  const message = firstError?.message ?? '';
   const formattedError = `${instancePath}${instancePath ? ': ' : ''}${message}`;
 
   return new Error(formattedError);
