@@ -8,7 +8,7 @@ export const CreateUserBody = Type.Object({
     format: 'regex',
     pattern: '^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[#?!@$%^&*-])(?=.{8,})',
     errorMessage: {
-      format: 'password must minimum of 8 characters, 1 uppercase, lowercase, number and a special character'
+      pattern: 'password must minimum of 8 characters, 1 uppercase, lowercase, number and a special character'
     }
   })
 });
