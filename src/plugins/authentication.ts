@@ -1,10 +1,11 @@
-import { FastifyInstance, FastifyReply, FastifyRequest } from 'fastify';
+import { FastifyInstance, FastifyRequest } from 'fastify';
 import { fastifyPlugin } from 'fastify-plugin';
 
 import prisma from '@utils/prisma';
+import { Unauthorized } from '@exceptions/error';
 
 export const authentication = fastifyPlugin((fastify: FastifyInstance, _: unknown, done: () => void) => {
-  const authPreHandler = async (request: FastifyRequest, reply: FastifyReply) => {
+  const authPreHandler = async (request: FastifyRequest) => {
     try {
       const authorization =
         (request.headers.authorization ? request.headers.authorization?.split('Bearer ')[1] : '') || '';
@@ -22,7 +23,7 @@ export const authentication = fastifyPlugin((fastify: FastifyInstance, _: unknow
 
       request.user = getUser;
     } catch (error) {
-      reply.unauthorized();
+      throw new Unauthorized();
     }
   };
   fastify.decorate('authenticateUser', authPreHandler);

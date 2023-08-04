@@ -29,7 +29,8 @@
       "@utils/*": ["utils/*"],
       "@constants/*": ["constants/*"],
       "@plugins/*": ["plugins/*"],
-      "@components/*": ["components/*"]
+      "@components/*": ["components/*"],
+      "@exceptions/*": ["exceptions/*"]
     }
   },
   "include": ["src/**/*.ts", "src/**/*.json", ".env", "src/**/*.feature", "src/**/*.d.ts"],

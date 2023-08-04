@@ -46,7 +46,6 @@
     "@fastify/env": "4.2.0",
     "@fastify/helmet": "11.0.0",
     "@fastify/jwt": "7.2.0",
-    "@fastify/sensible": "5.2.0",
     "@fastify/swagger": "8.8.0",
     "@fastify/swagger-ui": "1.9.3",
     "@fastify/type-provider-typebox": "3.4.0",

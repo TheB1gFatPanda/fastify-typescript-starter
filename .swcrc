@@ -26,7 +26,8 @@
       "@utils/*": ["utils/*"],
       "@constants/*": ["constants/*"],
       "@plugins/*": ["plugins/*"],
-      "@components/*": ["components/*"]
+      "@components/*": ["components/*"],
+      "@exceptions/*": ["exceptions/*"]
     }
   },
   "module": {

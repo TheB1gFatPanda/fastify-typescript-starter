@@ -1,10 +1,11 @@
 import { compare } from 'bcrypt';
 
-import { FastifyReply } from 'fastify';
-
 import { LoginUser } from '@components/auth/auth.interface';
 
 import prisma from '@utils/prisma';
+
+import { NotFound, Unauthorized } from '@exceptions/error';
+import { FastifyReply } from 'fastify';
 
 class AuthService {
   public db = prisma;
@@ -17,14 +18,14 @@ class AuthService {
     });
 
     if (!findUser) {
-      return reply.notFound('User not found');
+      throw new NotFound('User not found');
     }
 
     // compare hashed and password
     const isPasswordMatching: boolean = await compare(loginData.password, findUser.password).catch(() => false);
 
     if (!isPasswordMatching) {
-      return reply.unauthorized('Incorrect login credentials');
+      throw new Unauthorized('Incorrect login credentials');
     }
 
     // example jwt

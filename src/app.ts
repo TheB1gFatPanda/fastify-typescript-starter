@@ -7,7 +7,6 @@ import { TypeBoxTypeProvider } from '@fastify/type-provider-typebox';
 import fastifyJwt from '@fastify/jwt';
 import { API_VERSION, CREDENTIALS, NODE_ENV, ORIGIN, PORT, SECRET_KEY } from '@config';
 import fastifyEnv from '@fastify/env';
-import fastifySensible from '@fastify/sensible';
 
 import { initializeRoutes } from '@plugins/initializeRoute';
 import { authentication } from '@plugins/authentication';
@@ -64,7 +63,6 @@ class App {
 
   private initializePlugins() {
     this.app.register(fastifyEnv, { dotenv: true, schema });
-    this.app.register(fastifySensible);
     this.app.register(fastifyCors, { origin: ORIGIN, credentials: CREDENTIALS === 'true' });
     this.app.register(fastifyHelmet);
     this.app.register(fastifyCompress);
